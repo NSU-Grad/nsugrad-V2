@@ -1,25 +1,8 @@
 
+<?php
+include_once 'include/db.php';
 
-<?php 
-function get_download_count($file=null){
-  $counters = './counters/';
-  if($file == null) return 0;
-  $count = 0;
-  if(file_exists($counters.md5($file).'_counter.txt')){
-    $fp = fopen($counters.md5($file).'_counter.txt', "r");
-    $count = fread($fp, 1024);
-    fclose($fp);
-  }else{
-    $fp = fopen($counters.md5($file).'_counter.txt', "w+");
-    fwrite($fp, $count);
-    fclose($fp);
-  }
-  return $count;
-}
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -143,8 +126,7 @@ function get_download_count($file=null){
         <div class="col-md-12 col-sm-12">
           <h1>NSU Thesis Template</h1>
           <p>
-            When writing your CSE299/CSE499/CSE498R report, you will most likely need to format your paper for submission. To make things easier, MS-Word template and Overleaf (an Overleaf account is required) or for your local TeX system template (as Zip) are available for 
-            and apply to your research paper format.
+            When writing your CSE299/CSE499/CSE498R report, you will most likely need to format your paper for submission. To make things easier, MS-Word template and Overleaf (an Overleaf account is required) or for your local TeX system template (as Zip) are available for download and apply to your research paper format.
           </p>
         </div>
       </div>
@@ -156,7 +138,14 @@ function get_download_count($file=null){
               <div class="text text-center">
                 <h3 class="pt-1 m-0">MS WORD</h3>
 
-                 <a href="./download.php?file=NSU_Thesis_Template.docx">Download MS Template</a> <p style=" margin-bottom: 0rem; color: gray; font-size: 1.5vmin">Total downlaods: <?php echo get_download_count('NSU_Thesis_Template.docx');?></p>
+                 <a href="./download.php?file=NSU_Thesis_Template.docx">Download MS Template</a> <p style=" margin-bottom: 0rem; color: gray; font-size: 1.5vmin">Total downlaods: 
+      <?php    
+          $file = basename("./files/NSU_Thesis_Template.docx");
+          $md_file = md5($file);
+          $result = mysqli_query($con,"SELECT `count` FROM `counter` WHERE `file_name` = '$md_file';");
+          $row = mysqli_fetch_assoc($result);
+          echo "Result: " . $row['count'];
+      ?>                          </p>
                 
                  
                     
@@ -172,7 +161,13 @@ function get_download_count($file=null){
               <div class="text text-center">
                 <h3 class="pt-1 m-0">Online/Local Editor (LaTex Format)</h3> 
 
-                <a href="./download.php?file=NSU Thesis Template.zip">Download as Zip</a> <p style="margin-bottom: 0rem; color: gray; font-size: 1.5vmin">Total downloads: <?php echo get_download_count('NSU Thesis Template.zip');?></p>
+                <a href="./download.php?file=NSU Thesis Template.zip">Download as Zip</a> <p style="margin-bottom: 0rem; color: gray; font-size: 1.5vmin">Total downloads: <?php   
+          $file = basename("./files/NSU Thesis Template.zip");
+          $md_file = md5($file);
+          $result = mysqli_query($con,"SELECT `count` FROM `counter` WHERE `file_name` = '$md_file';");
+          $row = mysqli_fetch_assoc($result);
+          echo "Result: " . $row['count'];
+      ?>                              </p>
 
               </div>
             </div>
