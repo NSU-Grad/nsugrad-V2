@@ -210,6 +210,38 @@ include_once 'include/db.php';
       <div class="questions-container">
         <div class="content-container">
           <div class="faq-header">
+            <h3>What to do if my the ZIP file gets corrupted?</h3>
+            <span class="open active">+</span>
+            <span class="close">-</span>
+          </div>
+
+          <div class="content">
+            <p>
+              ZIP files can get corrupted during the download process due to number of reasons. If you are experiencing issues with a corrupted archived file, please follow the steps below. </br>
+              <ul>
+
+                <li>Step 1: Right-click the corrupted archive file (RAR or ZIP file) and select Open with WinRar.
+
+                  <img style='height: 100%; width: 100%; object-fit: cover' class= "center" src="assets/Screenshot(1).png" alt="citation"></li>
+
+                <br><li>Step 2: Close the diagnostic pop up message and click on the Repair button in the tool and choose the repair archiver from the drop-down list that appears.
+                  <img style='height: 100%; width: 100%; object-fit: cover' class= "center" src="assets/Screenshot(2).png" alt="citation"></li></br>
+                  <img style='height: 100%; width: 100%; object-fit: cover' class= "center" src="assets/Screenshot(3).png" alt="citation"></li></br>
+
+
+                <br><li>Step 3: After repairing the file, a new dialogue appears; select the location where you want to save the new archive. Click OK.
+
+                  <img style='height: 100%; width: 100%; object-fit: cover' class= "center" src="assets/Screenshot(4).png" alt="citation"></br>
+
+                <br><li>Step 4: When the repair process is finished, navigate to the folder you specified as the location for the new archive and open the repaired file.
+
+                  <img style='height: 100%; width: 100%; object-fit: cover' class= "center" src="assets/Screenshot(5).png" alt="citation"></br>  
+
+            </p>
+            </p>
+          </div>
+        <div class="content-container">
+          <div class="faq-header">
             <h3>Why is my reference not working in Texmaker?</h3>
             <span class="open active">+</span>
             <span class="close">-</span>
